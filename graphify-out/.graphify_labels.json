@@ -1,0 +1,16 @@
+{
+  "0": "BaseTest",
+  "1": "PlaywrightAutomation.Tests.Models",
+  "2": "ProductsPage",
+  "3": "TestUser",
+  "4": "TestSettings",
+  "5": "RegisterPage",
+  "6": "LoginPage",
+  "7": "CartPage",
+  "8": "PaymentPage",
+  "9": "CheckoutPage",
+  "10": "ProductDetailsPage",
+  "11": "PlaywrightAutomation.Tests",
+  "12": ".OpenCheckoutWithProductsAsync",
+  "13": "HeaderComponent"
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Default profile: headless, evidence only on failure.
+  Any value can be overridden from the command line or with environment variables (see README).
+-->
+<RunSettings>
+  <RunConfiguration>
+    <!-- Stability first: fixtures run one at a time against the shared public practice site. -->
+    <MaxCpuCount>1</MaxCpuCount>
+    <!-- Reports (and NUnit attachments referenced by the TRX) are written here, relative to this file. -->
+    <ResultsDirectory>..\TestResults</ResultsDirectory>
+  </RunConfiguration>
+
+  <!-- Reports generated on every run. The latest run overwrites the previous report. -->
+  <LoggerRunSettings>
+    <Loggers>
+      <Logger friendlyName="html" enabled="True">
+        <Configuration>
+          <LogFileName>TestReport.html</LogFileName>
+        </Configuration>
+      </Logger>
+      <Logger friendlyName="trx" enabled="True">
+        <Configuration>
+          <LogFileName>TestResults.trx</LogFileName>
+        </Configuration>
+      </Logger>
+      <Logger friendlyName="console" enabled="True">
+        <Configuration>
+          <Verbosity>normal</Verbosity>
+        </Configuration>
+      </Logger>
+    </Loggers>
+  </LoggerRunSettings>
+
+  <NUnit>
+    <NumberOfTestWorkers>1</NumberOfTestWorkers>
+  </NUnit>
+
+  <!-- Browser launch options, handled natively by Microsoft.Playwright.NUnit. -->
+  <Playwright>
+    <!-- chromium | firefox | webkit -->
+    <BrowserName>chromium</BrowserName>
+    <!-- Timeout in ms for Expect(...) assertions. -->
+    <ExpectTimeout>10000</ExpectTimeout>
+    <LaunchOptions>
+      <Headless>false</Headless>
+      <!-- Delay in ms added to every Playwright action. Useful to watch a headed run. -->
+      <SlowMo>0</SlowMo>
+      <!-- Optional branded browser for chromium: chrome | msedge -->
+      <!-- <Channel>chrome</Channel> -->
+    </LaunchOptions>
+  </Playwright>
+
+  <!-- Framework settings, read by Configuration/TestSettings.cs (overridable with E2E_* environment variables). -->
+  <TestRunParameters>
+    <Parameter name="BaseUrl" value="https://automationexercise.com" />
+    <Parameter name="ViewportWidth" value="1366" />
+    <Parameter name="ViewportHeight" value="900" />
+    <!-- Timeout in ms for actions and navigations. -->
+    <Parameter name="DefaultTimeout" value="30000" />
+    <Parameter name="BlockAds" value="true" />
+    <!-- off | on-failure | always -->
+    <Parameter name="Screenshot" value="on-failure" />
+    <Parameter name="Trace" value="on-failure" />
+    <Parameter name="Video" value="off" />
+    <!-- Absolute, or relative to bin/Debug/net8.0 -->
+    <Parameter name="ArtifactsDirectory" value="playwright-artifacts" />
+  </TestRunParameters>
+</RunSettings>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Debug profile: visible browser, slowed-down actions and full evidence (trace + video) for every test.
+  Usage: dotnet test -s PlaywrightAutomation.Tests/debug.runsettings
+-->
+<RunSettings>
+  <RunConfiguration>
+    <MaxCpuCount>1</MaxCpuCount>
+    <ResultsDirectory>..\TestResults</ResultsDirectory>
+  </RunConfiguration>
+
+  <LoggerRunSettings>
+    <Loggers>
+      <Logger friendlyName="html" enabled="True">
+        <Configuration>
+          <LogFileName>TestReport.html</LogFileName>
+        </Configuration>
+      </Logger>
+      <Logger friendlyName="trx" enabled="True">
+        <Configuration>
+          <LogFileName>TestResults.trx</LogFileName>
+        </Configuration>
+      </Logger>
+      <Logger friendlyName="console" enabled="True">
+        <Configuration>
+          <Verbosity>normal</Verbosity>
+        </Configuration>
+      </Logger>
+    </Loggers>
+  </LoggerRunSettings>
+
+  <NUnit>
+    <NumberOfTestWorkers>1</NumberOfTestWorkers>
+  </NUnit>
+
+  <Playwright>
+    <BrowserName>chromium</BrowserName>
+    <ExpectTimeout>10000</ExpectTimeout>
+    <LaunchOptions>
+      <Headless>false</Headless>
+      <SlowMo>300</SlowMo>
+    </LaunchOptions>
+  </Playwright>
+
+  <TestRunParameters>
+    <Parameter name="BaseUrl" value="https://automationexercise.com" />
+    <Parameter name="ViewportWidth" value="1366" />
+    <Parameter name="ViewportHeight" value="900" />
+    <Parameter name="DefaultTimeout" value="30000" />
+    <Parameter name="BlockAds" value="true" />
+    <Parameter name="Screenshot" value="on-failure" />
+    <Parameter name="Trace" value="always" />
+    <Parameter name="Video" value="always" />
+    <Parameter name="ArtifactsDirectory" value="playwright-artifacts" />
+  </TestRunParameters>
+</RunSettings>
