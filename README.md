@@ -122,14 +122,14 @@ La paralelización (`NumberOfTestWorkers`) está fijada en **1** a propósito: e
 
 ### Reportes
 
-Cada ejecución de `dotnet test` genera, en `TestResults/` en la raíz de la solución:
+Cada ejecución de `dotnet test` genera, en `reports/` en la raíz de la solución (ignorada por git):
 
 | Archivo | Contenido | Cómo abrirlo |
 |---|---|---|
 | `TestReport.html` | Resumen (total, pasadas, fallidas, % y duración) y detalle de cada fallo con el mensaje de Playwright y el stack trace. | Doble clic, en cualquier navegador. |
 | `TestResults.trx` | Resultado completo en formato Visual Studio, con enlaces a las evidencias adjuntas (screenshot, trace, video). | Visual Studio, Azure DevOps o GitHub Actions (por ejemplo, con `dorny/test-reporter`). |
 
-El reporte de la última ejecución reemplaza al anterior. Las evidencias adjuntas se copian en una subcarpeta con fecha y hora dentro de `TestResults/`. Los loggers se configuran en la sección `<LoggerRunSettings>` de cada `.runsettings`.
+El reporte de la última ejecución reemplaza al anterior. Las evidencias adjuntas se copian en una subcarpeta con fecha y hora dentro de `reports/`. Los loggers se configuran en la sección `<LoggerRunSettings>` de cada `.runsettings`.
 
 ### Evidencias
 

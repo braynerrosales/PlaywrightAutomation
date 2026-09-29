@@ -6,7 +6,7 @@
 <RunSettings>
   <RunConfiguration>
     <MaxCpuCount>1</MaxCpuCount>
-    <ResultsDirectory>..\TestResults</ResultsDirectory>
+    <ResultsDirectory>..\reports</ResultsDirectory>
   </RunConfiguration>
 
   <LoggerRunSettings>
